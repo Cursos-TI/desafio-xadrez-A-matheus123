@@ -6,27 +6,50 @@
 
 int main() {
     // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    int pecas, t = 1, b = 1;// variáveis do programa;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    printf("Peças:\n");// menu interativo;
+    printf("1. Torre\n");
+    printf("2. Bispo\n");
+    printf("3. Rainha\n");
+    printf("Escolha uma das peças: ");
+    scanf("%d", &pecas);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    switch (pecas)// switch para escolha;
+    {
+    case 1:
+        while (t <= 5)// eu preferi começar pelo while, aqui é onde fica a lógica;
+        {
+            printf("Torre: Direita!\n");// aqui é o que que o programa vai fazer, no caso imprimir "Torre: Direita!";
+            t++;// aqui eu coloco o incremento para não dar loop infinito;
+        }
+        
+        break;
+    case 2:
+        do {// para o bispo eu preferi usar o do-while;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+            printf("Bispo: Cima, direita!\n");// aqui é o que que o programa vai fazer, no caso imprimir "bispo: Cima, direita!";
+            b++;// aqui eu coloco o incremento para não dar loop infinito;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+        } while (b <= 5);// só então eu coloco a lógica do programa;
+        
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+        break;
+    case 3:
+        for (int r = 1; r <= 8; r++)// no for, cria uma variável inteira, cria a lógica e faz o incremento;
+        {
+            
+            printf("Rainha: Esquerda!\n");// aqui é o que que o programa vai fazer, no caso imprimir "Rainha: Esquerda!";
+
+        }
+        
+        break;
+    
+    default:
+        printf("Escolha apenas 1, 2 ou 3!\n");
+    }
+
 
     return 0;
 }
