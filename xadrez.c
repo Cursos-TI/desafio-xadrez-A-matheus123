@@ -1,8 +1,25 @@
 #include <stdio.h>
 
-int main(){
-    int pecas, t = 1, b = 1;// variáveis do programa;
+void torre(int t) {// recursividade da torre;
+    if (t > 0) {
+        printf("Torre: Direita!\n");
+        torre(t - 1);
+    }
+} void bispo(int b) {// recursividade do bispo;
+    if (b > 0) {
+        printf("Bispo: Cima, direita!\n");
+        bispo(b - 1);
+    }
+} void rainha(int r) {// recursividade da rainha;
+    if (r > 0) {
+        printf("Rainha: Esquerda!\n");
+        rainha(r - 1);
+    }
+}
 
+
+int main(){
+        int pecas;
     printf("Peças:\n");// menu interativo;
     printf("1. Torre\n");
     printf("2. Bispo\n");
@@ -14,46 +31,44 @@ int main(){
     switch (pecas)// switch para escolha;
     {
     case 1:
-        while (t <= 5)// eu preferi começar pelo while, aqui é onde fica a lógica;
-        {
-            printf("Torre: Direita!\n");// aqui é o que que o programa vai fazer, no caso imprimir "Torre: Direita!";
-            t++;// aqui eu coloco o incremento para não dar loop infinito;
-        }
+        torre(5);// uso da recursividade depois do "int main";
         
         break;
     case 2:
-        do {// para o bispo eu preferi usar o do-while;
+        bispo(2);// uso da recursividade depois do "int main";
+        for (int cima = 1; cima < 4; cima++) {// resto do loop do bispo, como pedido eu coloquei em loop aninhado. O comando "Cima" no loop externo e o comando "direita" no loop interno;
 
-            printf("Bispo: Cima, direita!\n");// aqui é o que que o programa vai fazer, no caso imprimir "bispo: Cima, direita!";
-            b++;// aqui eu coloco o incremento para não dar loop infinito;
+            printf("Bispo: Cima, ");
 
-        } while (b <= 5);// só então eu coloco a lógica do programa;
+            for (int direita = 1; direita < 2; direita++) {
+
+                printf("direita!\n");
+
+            }
+            
+        }
         
-
+        
         break;
     case 3:
-        for (int r = 1; r <= 8; r++)// no for, cria uma variável inteira, cria a lógica e faz o incremento;
-        {
-            
-            printf("Rainha: Esquerda!\n");// aqui é o que que o programa vai fazer, no caso imprimir "Rainha: Esquerda!";
-
-        }
+        rainha(8);// uso da recursividade depois do "int main";
         
         break;
     case 4:
-        printf("Cavalo: ");
+
+        printf("Cavalo: ");// no cavalo eu mudei apenas a direção que ele vai seguir (cima, cima e direita);
         for (int esquerda = 1; esquerda < 2; esquerda++)// estrutura for para loops;
         {
-            for (int baixo = 1; baixo <= 2; baixo++)// estrutura for aninhada;
+            for (int baixo = 1; baixo < 2 ; baixo++)// estrutura for aninhada;
             {
-                printf("Baixo, ");
+                printf("Cima, cima, ");
             }
-            printf("esquerda!\n");
+            printf("direita!\n");
         }
         break;
     
     default:
-        printf("Escolha apenas 1, 2 ou 3!\n");
+        printf("Escolha apenas 1, 2 ou 3!\n");// opção default;
     }
     printf("\n");
 
